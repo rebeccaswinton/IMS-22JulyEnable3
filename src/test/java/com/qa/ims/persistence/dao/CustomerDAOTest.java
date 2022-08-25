@@ -21,12 +21,12 @@ public class CustomerDAOTest {
 		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data.sql");
 	}
 
-//	@Test
-//	public void testCreate() {
-//		final Customer created = new Customer(2L, "chris", "perrins");
-//		assertEquals(created, DAO.create(created));
-//	}
-//
+	@Test
+	public void testCreate() {
+		final Customer created = new Customer(1L,"Hannah", "Montanna");
+		assertEquals(created, DAO.create(created));
+	}
+
 //	@Test
 //	public void testReadAll() {
 //		List<Customer> expected = new ArrayList<>();
