@@ -20,13 +20,12 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 	
 	@Override
 	public OrdersItems modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long id = resultSet.getLong("id");
+		Long id = resultSet.getLong("order_item_id");
 		Long fk_order_id = resultSet.getLong("fk_order_id");
 		Long fk_item_id = resultSet.getLong("fk_item_id");
 		int quantity = resultSet.getInt("quantity");
-		double price = resultSet.getDouble("price");
 		
-		return new OrdersItems(id, fk_order_id, fk_item_id, quantity, price);
+		return new OrdersItems(id, fk_order_id, fk_item_id, quantity);
 	}
 	
 @Override
@@ -49,7 +48,7 @@ public class OrdersItemsDAO implements Dao<OrdersItems>{
 public OrdersItems readLatest()	{
 	try(Connection connection = DBUtils.getInstance().getConnection();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders_items ORDER BY id DESC LIMIT 1"); ){
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders_items ORDER BY order_item_id DESC LIMIT 1"); ){
 		resultSet.next();
 		return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -63,11 +62,10 @@ public OrdersItems readLatest()	{
 	public OrdersItems create(OrdersItems ordersItems) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
 			PreparedStatement statement = connection
-					.prepareStatement("INSERT INTO orders_items(fk_order_id, fk_item_id, quantity, price) VALUES (?, ?, ?, ?)");) {
+					.prepareStatement("INSERT INTO orders_items(fk_order_id, fk_item_id, quantity) VALUES (?, ?, ?)");) {
 		statement.setLong(1, ordersItems.getFk_order_id());
 		statement.setLong(2, ordersItems.getFk_item_id());
 		statement.setInt(3, ordersItems.getQuantity());
-		statement.setDouble(4, ordersItems.getPrice());
 		statement.executeUpdate();
 		return readLatest();
 	} catch (Exception e) {
@@ -80,7 +78,7 @@ public OrdersItems readLatest()	{
 @Override
 	public OrdersItems read(Long id) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
-			PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders_items WHERE id = ?");) {
+			PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders_items WHERE order_item_id = ?");) {
 		statement.setLong(1, id);
 		try (ResultSet resultSet = statement.executeQuery();) {
 			resultSet.next();
@@ -98,11 +96,10 @@ public OrdersItems readLatest()	{
 	public OrdersItems update(OrdersItems ordersItems) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE orders_items SET fk_order_id = ?, fk_item_id = ?, quantity = ? , price = ? WHERE id = ?");) {
+						.prepareStatement("UPDATE orders_items SET fk_order_id = ?, fk_item_id = ?, quantity = ? WHERE order_item_id = ?");) {
 			statement.setLong(1, ordersItems.getFk_order_id());
 			statement.setLong(2, ordersItems.getFk_item_id());
 			statement.setInt(3, ordersItems.getQuantity());
-			statement.setDouble(4, ordersItems.getPrice());
 			statement.executeUpdate();
 			return read(ordersItems.getId());
 		} catch (Exception e) {
@@ -115,7 +112,7 @@ public OrdersItems readLatest()	{
 	@Override
 	public int delete(long id) {
 		try(Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders_ietms WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders_items WHERE order_item_id = ?");) {
 			statement.setLong(1, id);
 			return statement.executeUpdate();
 			} catch (Exception e) {
