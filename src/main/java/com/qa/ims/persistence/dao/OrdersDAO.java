@@ -22,13 +22,10 @@ public class OrdersDAO implements Dao<Orders> {
 	
 	@Override
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long id = resultSet.getLong("id");
+		Long id = resultSet.getLong("order_id");
 		Long fk_customer_id = resultSet.getLong("fk_customer_id");
-		Long fk_item_id = resultSet.getLong("fk_item_id");
-		int quantity = resultSet.getInt("quantity");
-		float total = resultSet.getFloat("total");
-		Date datePlaced = resultSet.getDate("datePlaced");
-		return new Orders(id, fk_customer_id, fk_item_id, quantity, total, datePlaced);
+		
+		return new Orders(id, fk_customer_id);
 }
 @Override	
 	public List<Orders> readAll() {
@@ -65,13 +62,8 @@ public Orders readLatest() {
 public Orders create(Orders orders) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO ORDERS (fk_customer_id, fk_item_id, quantity, total, datePlaced) VALUES(?,?,?,?,?");){
+						.prepareStatement("INSERT INTO ORDERS (fk_customer_id) VALUES(?)");){
 		statement.setLong(1, orders.getFk_customer_id());
-		statement.setLong(2, orders.getFk_item_id());
-		statement.setInt(3, orders.getQuantity());
-		statement.setFloat(4, orders.getTotal());
-		statement.setDate(5, orders.getDatePlaced());
-		statement.executeUpdate();
 		return readLatest();	
 	}catch (Exception e) {
 		LOGGER.debug(e);
@@ -83,7 +75,7 @@ public Orders create(Orders orders) {
 public Orders read(Long id) {
 	try( Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("SELECT * FROM orders WHERE id = ?" );){
+						.prepareStatement("SELECT * FROM orders WHERE order_id = ?" );){
 		statement.setLong(1, id);
 		try( ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
@@ -101,12 +93,9 @@ public Orders read(Long id) {
 public Orders update(Orders orders) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
 			PreparedStatement statement = connection
-					.prepareStatement("UPDATE orders fk_customer_id = ?, fk_item_id = ?, quantity = ?, total = ?, datePlaced = ?, WHERE id =?");){
+					.prepareStatement("UPDATE orders fk_customer_id = ? WHERE order_id = ?");){
 					statement.setLong(1, orders.getFk_customer_id());
 					statement.setLong(2, orders.getFk_customer_id());
-					statement.setInt(3, orders.getQuantity());
-					statement.setFloat(4, orders.getTotal());
-					statement.setDate(5, orders.getDatePlaced());
 					statement.executeUpdate();	
 					return read(orders.getId());
 					}catch (Exception e) {
@@ -119,7 +108,7 @@ public Orders update(Orders orders) {
 @Override
 public int delete(long id) {
 	try(Connection connection = DBUtils.getInstance().getConnection();
-	PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE id = ?");) {
+	PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE order_id = ?");) {
 statement.setLong(1, id);
 return statement.executeUpdate();
 } catch (Exception e) {

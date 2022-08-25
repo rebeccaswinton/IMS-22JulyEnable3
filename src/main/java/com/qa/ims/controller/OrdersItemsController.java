@@ -58,7 +58,7 @@ public class OrdersItemsController implements CrudController<OrdersItems> {
 		Long fk_item_id = utils.getLong();	
 		LOGGER.info("Please enter the quantity");
 		int quantity = utils.getInt();	
-		OrdersItems ordersitems = ordersitemsDAO.create(new OrdersItems(fk_order_id, fk_item_id, quantity));
+		OrdersItems ordersitems = ordersitemsDAO.update(new OrdersItems(fk_order_id, fk_item_id, quantity));
 		LOGGER.info("Order-Item Updated");
 		return ordersitems;
 }
@@ -66,7 +66,7 @@ public class OrdersItemsController implements CrudController<OrdersItems> {
 	public int delete() {
 		LOGGER.info("Please enter the id of the order-item you would like to remove");
 		Long id = utils.getLong();
-		LOGGER.info("Item Deleted!");
+		LOGGER.info("Order-Item Deleted!");
 		return ordersitemsDAO.delete(id);
 
 	}

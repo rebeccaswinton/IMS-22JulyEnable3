@@ -51,7 +51,7 @@ public void setQuantity(int quantity) {
 
 @Override
 public String toString() {
-	return "OrdersItems [id: " + id + ", fk_order_id: " + fk_order_id + ", fk_item_id: " + fk_item_id + ", quantity: "
+	return "OrdersItems id: " + id + ", fk_order_id: " + fk_order_id + ", fk_item_id: " + fk_item_id + ", quantity: "
 			+ quantity;
 }
 @Override
