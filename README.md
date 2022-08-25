@@ -70,7 +70,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Versioning
 
-We use [Github] for versioning.
+We use [Git]https://git-scm.com/ for versioning.
 
 ## Authors
 
