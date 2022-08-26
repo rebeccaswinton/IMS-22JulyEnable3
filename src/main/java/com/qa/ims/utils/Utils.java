@@ -66,12 +66,5 @@ do {
 return intInput;
 	}
 	
-
-	/*
-	 * public int getInt() { String input = null; int intInput = null; do { try {
-	 * input = getString(); intInput = int.parseInt(); } catch
-	 * (NumberFormatException nfe) { LOGGER.info("Error - Please enter a number"); }
-	 * } while (intInput == null); return (int) intInput; }
-	 */
 }
 
