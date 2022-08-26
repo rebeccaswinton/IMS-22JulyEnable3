@@ -11,4 +11,6 @@ public class CustomerTest {
 		EqualsVerifier.simple().forClass(Customer.class).verify();
 	}
 
+	public void 
+	
 }
