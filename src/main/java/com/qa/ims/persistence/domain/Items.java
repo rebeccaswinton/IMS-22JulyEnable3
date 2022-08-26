@@ -29,6 +29,12 @@ public Items(String title, double price_decimal, int stock) {
 
 
 
+public Items() {
+
+}
+
+
+
 public Long getId() {
 	return id;
 }
