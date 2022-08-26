@@ -27,10 +27,10 @@ public class ItemsDAOTest {
 	  Items(3L,"Apple iPhone 13 Pink",629.99,30); assertEquals(created,
 	  DAO.create(created)); }
 	  
-	  @Test 
-	  public void testReadAll() { List<Items> expected = new ArrayList<>();
-	  expected.add(new Items(4L, "Handheld Fan Rechargeable Blue", 12.99, 21));
-	  assertEquals(expected, DAO.readAll()); }
+	//  @Test 
+	 // public void testReadAll() { List<Items> expected = new ArrayList<>();
+	 // expected.add(new Items(4L, "Handheld Fan Rechargeable Blue", 12.99, 21));
+	 // assertEquals(expected, DAO.readAll()); }
 	  
 	  @Test public void testReadLatest() { assertEquals(new
 	  Items(3L,"Apple iPhone 13 Pink",629.99,30), DAO.readLatest());
@@ -43,11 +43,11 @@ public class ItemsDAOTest {
 	  
 	  }
 	 
-	  @Test
-	  public void testUpdate() { final Items updated = new Items
-	  (1L,"Apple iPhone 13 Pink",629.99,30); assertEquals(updated,
-	  DAO.update(updated)); 
-	  } 
+	//  @Test
+	 // public void testUpdate() { final Items updated = new Items
+	//  (1L,"Apple iPhone 13 Pink",629.99,30); assertEquals(updated,
+	//  DAO.update(updated)); 
+	//  } 
 	 
 
 	@Test
