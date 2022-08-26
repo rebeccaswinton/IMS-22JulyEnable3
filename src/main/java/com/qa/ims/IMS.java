@@ -57,7 +57,7 @@ public class IMS {
 				return;
 			default:
 				break;
-			}
+			}  
 
 			LOGGER.info(() ->"What would you like to do with " + domain.name().toLowerCase() + ":");
 
