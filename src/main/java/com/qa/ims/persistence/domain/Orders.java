@@ -1,36 +1,26 @@
 package com.qa.ims.persistence.domain;
 
-import java.sql.Date;
+
 import java.util.Objects;
 
 
 public class Orders {
 private Long id;
 private Long fk_customer_id;
-private Long fk_item_id;
-private int quantity; 
-private float total;
-private Date datePlaced;
 
 
-public Orders(Long id, Long fk_customer_id, Long fk_item_id, int quantity, float total, Date datePlaced) {
+
+public Orders(Long id, Long fk_customer_id) {
 	super();
 	this.id = id;
 	this.fk_customer_id = fk_customer_id;
-	this.fk_item_id = fk_item_id;
-	this.quantity = quantity;
-	this.total = total;
-	this.datePlaced = datePlaced;
 }
 
 
-public Orders(Long fk_customer_id, Long fk_item_id, int quantity, float total, Date datePlaced) {
+
+public Orders(Long fk_customer_id) {
 	super();
 	this.fk_customer_id = fk_customer_id;
-	this.fk_item_id = fk_item_id;
-	this.quantity = quantity;
-	this.total = total;
-	this.datePlaced = datePlaced;
 }
 
 
@@ -54,57 +44,19 @@ public void setFk_customer_id(Long fk_customer_id) {
 }
 
 
-public Long getFk_item_id() {
-	return fk_item_id;
-}
-
-
-public void setFk_item_id(Long fk_item_id) {
-	this.fk_item_id = fk_item_id;
-}
-
-
-public int getQuantity() {
-	return quantity;
-}
-
-
-public void setQuantity(int quantity) {
-	this.quantity = quantity;
-}
-
-
-public float getTotal() {
-	return total;
-}
-
-
-public void setTotal(float total) {
-	this.total = total;
-}
-
-
-public Date getDatePlaced() {
-	return datePlaced;
-}
-
-
-public void setDatePlaced(Date datePlaced) {
-	this.datePlaced = datePlaced;
-}
 
 
 @Override
 public String toString() {
-	return "Orders [id=" + id + ", fk_customer_id=" + fk_customer_id + ", fk_item_id=" + fk_item_id + ", quantity="
-			+ quantity + ", total=" + total + ", datePlaced=" + datePlaced + "]";
+	return "Orders [id=" + id + ", fk_customer_id=" + fk_customer_id;
 }
 
 
 @Override
 public int hashCode() {
-	return Objects.hash(datePlaced, fk_customer_id, fk_item_id, id, quantity, total);
+	return Objects.hash(fk_customer_id, id);
 }
+
 
 
 @Override
@@ -116,10 +68,9 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	Orders other = (Orders) obj;
-	return Objects.equals(datePlaced, other.datePlaced) && fk_customer_id == other.fk_customer_id
-			&& fk_item_id == other.fk_item_id && Objects.equals(id, other.id) && quantity == other.quantity
-			&& Float.floatToIntBits(total) == Float.floatToIntBits(other.total);
+	return Objects.equals(fk_customer_id, other.fk_customer_id) && Objects.equals(id, other.id);
 }
+
 
 
 

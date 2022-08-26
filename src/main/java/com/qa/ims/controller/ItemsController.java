@@ -36,7 +36,7 @@ public class ItemsController implements CrudController<Items> {
 	public Items create() {
 		LOGGER.info("Please enter a Title" );
 		String title  = utils.getString();
-		LOGGER.info("Please enter the price of" + title);
+		LOGGER.info("Please enter the price of " + title);
 		double price_decimal = utils.getDouble();
 		LOGGER.info("Please enter the stock quantity");
 		int stock = utils.getInt();	
@@ -52,7 +52,7 @@ public class ItemsController implements CrudController<Items> {
 		Long id = utils.getLong();
 		LOGGER.info("Please enter a title of the item");
 		String title = utils.getString();
-		LOGGER.info("Please enter the price");
+		LOGGER.info("Please enter the price of " + title);
 		double price_decimal = utils.getDouble();
 		LOGGER.info("What is the stock quanity?");
 		int stock = utils.getInt();
@@ -65,6 +65,7 @@ public class ItemsController implements CrudController<Items> {
 	public int delete() {
 		LOGGER.info("Please enter the id of the item you would like to remove");
 		Long id = utils.getLong();
+		LOGGER.info("Item Deleted!");
 		return itemsDAO.delete(id);
 	}
 
