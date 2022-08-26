@@ -27,7 +27,7 @@ public enum Domain {
 			LOGGER.info(domain.getDescription());
 		}
 	}
-
+ 
 	public static Domain getDomain(Utils utils) {
 		Domain domain;
 		while (true) {

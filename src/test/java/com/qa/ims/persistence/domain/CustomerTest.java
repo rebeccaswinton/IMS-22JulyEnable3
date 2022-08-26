@@ -71,7 +71,7 @@ String expected2 = "Topaz";
 
 assertEquals(expected1, actual1); 
 assertEquals(expected2, actual2);
-}	
+}	 
 @Test
 	public void hashCodeTest() {
 	Customer customer1 = new Customer("Jenny","Harper");

@@ -54,7 +54,7 @@ public Orders readLatest() {
 	} catch (Exception e) {
 		LOGGER.debug(e);
 		LOGGER.error(e.getMessage());
-	}
+	} 
 	return null;
 }
 // id is ignored
@@ -93,7 +93,7 @@ public Orders read(Long id) {
 public Orders update(Orders orders) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
 			PreparedStatement statement = connection
-					.prepareStatement("UPDATE orders fk_customer_id = ? WHERE order_id = ?");){
+					.prepareStatement("UPDATE orders SET fk_customer_id = ? WHERE order_id = ?");){
 					statement.setLong(1, orders.getFk_customer_id());
 					statement.setLong(2, orders.getFk_customer_id());
 					statement.executeUpdate();	

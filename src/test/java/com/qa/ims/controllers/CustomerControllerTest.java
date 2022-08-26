@@ -71,7 +71,7 @@ public class CustomerControllerTest {
 	}
 
 	@Test
-	public void testDelete() {
+	public void testDelete() { 
 		final long ID = 1L;
 
 		Mockito.when(utils.getLong()).thenReturn(ID);

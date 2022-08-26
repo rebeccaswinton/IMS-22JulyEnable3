@@ -77,7 +77,7 @@ public class ItemsDAO implements Dao<Items> {
 				LOGGER.error(e.getMessage());
 			}
 		return null;
-	}
+	} 
 // read items by id
 	@Override
 	public Items read(Long id) {
@@ -130,7 +130,7 @@ public class ItemsDAO implements Dao<Items> {
 
 
 
-
+ 
 
 	
 

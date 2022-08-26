@@ -42,7 +42,7 @@ public class ItemsController implements CrudController<Items> {
 		int stock = utils.getInt();	
 		Items item = itemsDAO.create(new Items(title, price_decimal, stock));
 		LOGGER.info("Item Created");
-		return item;
+		return item; 
 		
 	}
 	// updates an item by taking in user input 
@@ -65,7 +65,7 @@ public class ItemsController implements CrudController<Items> {
 	public int delete() {
 		LOGGER.info("Please enter the id of the item you would like to remove");
 		Long id = utils.getLong();
-		LOGGER.info("Item Deleted!");
+		LOGGER.info("Item Deleted!"); 
 		return itemsDAO.delete(id);
 	}
 
