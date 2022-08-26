@@ -1,7 +1,7 @@
 Coverage: 34%
 # IMS Project
 
-One Paragraph of project description goes here
+https://rebeccaswinton.atlassian.net/jira/software/projects/IMS/boards/2/backlog
 
 ## Getting Started
 
