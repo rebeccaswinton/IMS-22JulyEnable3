@@ -1,5 +1,5 @@
 Coverage: 34%
-# Project Title
+# IMS Project
 
 One Paragraph of project description goes here
 
@@ -39,17 +39,8 @@ Explain how to run the automated tests for this system. Break down into which te
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+testing each code to check functionality of classes
 
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
 ```
 
 ### And coding style tests
