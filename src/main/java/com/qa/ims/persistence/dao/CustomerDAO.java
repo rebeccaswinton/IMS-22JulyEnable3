@@ -36,7 +36,7 @@ public class CustomerDAO implements Dao<Customer> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery("SELECT * FROM customers");) {
-			List<Customer> customers = new ArrayList<>();
+			List<Customer> customers = new ArrayList<Customer>();
 			while (resultSet.next()) {
 				customers.add(modelFromResultSet(resultSet));
 			}
@@ -45,7 +45,7 @@ public class CustomerDAO implements Dao<Customer> {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
-		return new ArrayList<>();
+		return new ArrayList<Customer>();
 	}
 
 	public Customer readLatest() {
