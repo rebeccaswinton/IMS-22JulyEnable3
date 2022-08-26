@@ -24,6 +24,9 @@ public OrdersItems(Long fk_order_id, Long fk_item_id, int quantity) {
 	this.quantity = quantity;
 
 }
+public OrdersItems() {
+
+}
 public Long getId() {
 	return id;
 }

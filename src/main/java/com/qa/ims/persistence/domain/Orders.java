@@ -23,6 +23,11 @@ public Orders(Long fk_customer_id) {
 }
 
 
+public Orders() {
+
+}
+
+
 public Long getId() {
 	return id;
 }

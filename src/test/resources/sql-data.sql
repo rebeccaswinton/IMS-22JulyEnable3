@@ -5,7 +5,7 @@ SELECT * FROM ims.customers WHERE customer_id = 1;
 UPDATE ims.customers SET first_name = Tony, surname = Montanna WHERE customer_id = 1;
 DELETE FROM ims.customers WHERE customer_id = 1;
 
-INSERT into ims . items( title, price_decimal, stock) VALUES ( 'Champagne hollywood Mirror LED lights', 49.99, 15);
+INSERT into ims.items( title, price_decimal, stock) VALUES ( 'Champagne hollywood Mirror LED lights', 49.99, 15);
 SELECT * FROM ims.items;
 SELECT * FROM ims.items WHERE item_id = 1;
 UPDATE ims.items SET title = 'Apple iPhone 13 Pink', price_decimal = 629.99, stock = 30 WHERE item_id =1;

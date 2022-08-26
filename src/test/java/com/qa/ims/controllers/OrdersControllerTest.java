@@ -14,7 +14,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.controller.OrdersController;
 import com.qa.ims.persistence.dao.OrdersDAO;
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.Utils;
 
@@ -26,7 +25,7 @@ public class OrdersControllerTest {
 private Utils utils;
 
 @Mock
-private OrdersDAO dao;
+private OrdersDAO dao; 
 
 @InjectMocks
 private OrdersController controller;
