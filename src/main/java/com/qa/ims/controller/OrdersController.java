@@ -34,49 +34,33 @@ public class OrdersController implements CrudController<Orders> {
 
 	@Override
 	public Orders create() {
-<<<<<<< HEAD
-	LOGGER.info("Please enter the customer ID");
-	Long fk_customer_id = utils.getLong();	
-	Orders order = ordersDAO.create(new Orders(fk_customer_id));
-	LOGGER.info("Order Created");
-	return order;
-=======
 	LOGGER.info("Please enter customer id");
 	Long fk_customer_id = utils.getLong();	
 	Orders orders = ordersDAO.create(new Orders(fk_customer_id));
 	LOGGER.info("Order Created!");
 	
 	return orders;
->>>>>>> order_item
+
 	}
 
 	@Override
 	public Orders update() {
-<<<<<<< HEAD
-		LOGGER.info(" Please enter the id of the order you would like to update");
-		Long fk_customer_id = utils.getLong();
-		Orders order = ordersDAO.create(new Orders(fk_customer_id));
-		LOGGER.info("Order Updated accoridng to Customer with ID " + fk_customer_id);
-		return order;
-=======
 		LOGGER.info("Please enter the id for the order you would like to update");
 		Long id = utils.getLong();
 		LOGGER.info("Please enter the customer id");
 		Long fk_customer_id = utils.getLong();
 		Orders orders = ordersDAO.update(new Orders(id, fk_customer_id));
 		return orders;
->>>>>>> order_item
+
 	}
 
 	@Override
 	public int delete() {
 			LOGGER.info("Please enter the id of the order you would like to delete");
 			Long id = utils.getLong();
-<<<<<<< HEAD
+
 			LOGGER.info("Order Deleted!");
-=======
-			LOGGER.info("Order Deleted");
->>>>>>> order_item
+
 			return ordersDAO.delete(id);
 	}
 

@@ -1,9 +1,5 @@
 package com.qa.ims.persistence.domain;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> order_item
 import java.util.Objects;
 
 
@@ -11,16 +7,10 @@ public class Orders {
 private Long id;
 private Long fk_customer_id;
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> order_item
 public Orders(Long id, Long fk_customer_id) {
 	super();
 	this.id = id;
 	this.fk_customer_id = fk_customer_id;
-<<<<<<< HEAD
 }
 
 
@@ -28,16 +18,6 @@ public Orders(Long id, Long fk_customer_id) {
 public Orders(Long fk_customer_id) {
 	super();
 	this.fk_customer_id = fk_customer_id;
-=======
-
-}
-
-
-public Orders(Long fk_customer_id) {
-	super();
-	this.fk_customer_id = fk_customer_id;
-
->>>>>>> order_item
 }
 
 
@@ -66,18 +46,10 @@ public void setFk_customer_id(Long fk_customer_id) {
 }
 
 
-<<<<<<< HEAD
-
-
-@Override
-public String toString() {
-	return "Orders [id=" + id + ", fk_customer_id=" + fk_customer_id;
-=======
-
 @Override
 public String toString() {
 	return "Orders id: " + id + ", fk_customer_id: " + fk_customer_id;
->>>>>>> order_item
+
 }
 
 
@@ -100,15 +72,4 @@ public boolean equals(Object obj) {
 	return Objects.equals(fk_customer_id, other.fk_customer_id) && Objects.equals(id, other.id);
 }
 
-
-
-
-
-
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> order_item
 }

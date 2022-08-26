@@ -128,10 +128,6 @@ public class ItemsDAO implements Dao<Items> {
 		return 0;
 	}
 
-
-
- 
-
 	
 
 }

@@ -22,10 +22,7 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("order_id");
 		Long fk_customer_id = resultSet.getLong("fk_customer_id");
-<<<<<<< HEAD
-=======
-		
->>>>>>> order_item
+
 		return new Orders(id, fk_customer_id);
 }
 @Override	
@@ -63,21 +60,16 @@ public Orders readLatest() {
 public Orders create(Orders orders) {
 	try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-<<<<<<< HEAD
 						.prepareStatement("INSERT INTO orders (fk_customer_id) VALUES(?)");){
 		statement.setLong(1, orders.getFk_customer_id());
 		statement.executeUpdate();
-=======
-						.prepareStatement("INSERT INTO ORDERS (fk_customer_id) VALUES(?)");){
-		statement.setLong(1, orders.getFk_customer_id());
->>>>>>> order_item
 		return readLatest();	
 	}catch (Exception e) {
 		LOGGER.debug(e);
 		LOGGER.error(e.getMessage());
 	}
 	return null;
-}
+	}
 @Override
 public Orders read(Long id) {
 	try( Connection connection = DBUtils.getInstance().getConnection();
@@ -102,10 +94,7 @@ public Orders update(Orders orders) {
 			PreparedStatement statement = connection
 					.prepareStatement("UPDATE orders SET fk_customer_id = ? WHERE order_id = ?");){
 					statement.setLong(1, orders.getFk_customer_id());
-<<<<<<< HEAD
-=======
 					statement.setLong(2, orders.getFk_customer_id());
->>>>>>> order_item
 					statement.executeUpdate();	
 					return read(orders.getId());
 					}catch (Exception e) {
