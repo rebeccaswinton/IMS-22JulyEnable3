@@ -75,7 +75,7 @@ We use [Git]https://git-scm.com/ for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
-
+* **Rebecca Swinton"" - *Final work* - [rebeccaswinton] (https://github.com/rebeccaswinton)
 ## License
 
 This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
