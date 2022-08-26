@@ -1,4 +1,4 @@
-Coverage: 34%
+Coverage: 48%
 # IMS Project
 
 https://rebeccaswinton.atlassian.net/jira/software/projects/IMS/boards/2/backlog
