@@ -25,7 +25,7 @@ public class OrdersDAOTest {
 		final Orders created = new Orders(1L,1L);
 		assertEquals(created, DAO.create(created));
 	}
-	
+	@Test
 	public void testReadAll() {
 		List<Orders> expected = new ArrayList<>();
 		expected.add(new Orders(1L, 1L));
